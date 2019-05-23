@@ -4,8 +4,8 @@ const bodyParser = require('body-parser');
 const request = require('request');
 const app = express();
 // bot fb page
-const token = "EAAF2JH3flrIBADA6UOwQkNHXFThQfyfUwjPW0h1Kc5soEW0FBjO8cmln7B1Iyxl7f9HK1IDTbsmioxp5PemmZC6DDCEBlO95rjMxAvpRhLzjvwrWZCGOwjc1VrY64nIqSMWTgStOZAk2ZBMhseMYnkJZCb6GmPX2gZCVOHZCmQD6gZDZD";
-const msngerServerUrl = 'https://blockchainchatbot.herokuapp.com/bot';
+const token = "EAAETfFs4NvABAFMDZA8LN7ccZBBNGZB1JnOEEGeM2b4TQJp5Kjbao5ZAbjaYjeKpZCBfVZC5LsJEHRshzZAh8S0CssEorW3QdHi6VHXF2f4A66ZCCt2wk6fnFgk9kZA0whZCYiX5ioWTxaz2TJgLLsOSAMRwjTppZByVskRGx9lo5KdIAZDZD";
+const msngerServerUrl = 'https://chatbotsigo.herokuapp.com/bot';
 //global var
 var varPreguntaImagen = false;
 var varPreguntaImagen2 = false;
@@ -24,7 +24,7 @@ app.get('/', function (req, res) {
 
 // for Facebook verification
 app.get('/webhook/', function (req, res) {
-    if (req.query['hub.verify_token'] === 'iam-blockchain-bot') {
+    if (req.query['hub.verify_token'] === 'iam-sigo-bot') {
         res.send(req.query['hub.challenge']);
     }
     res.send('Error, wrong token');
