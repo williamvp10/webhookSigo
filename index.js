@@ -7,9 +7,6 @@ const app = express();
 const token = "EAAETfFs4NvABAFMDZA8LN7ccZBBNGZB1JnOEEGeM2b4TQJp5Kjbao5ZAbjaYjeKpZCBfVZC5LsJEHRshzZAh8S0CssEorW3QdHi6VHXF2f4A66ZCCt2wk6fnFgk9kZA0whZCYiX5ioWTxaz2TJgLLsOSAMRwjTppZByVskRGx9lo5KdIAZDZD";
 const msngerServerUrl = 'https://chatbotsigo.herokuapp.com/bot';
 //global var
-var varPreguntaImagen = false;
-var varPreguntaImagen2 = false;
-var varPreguntaHash = false;
 var user;
 app.set('port', (process.env.PORT || 5000));
 // Process application/x-www-form-urlencoded
@@ -160,7 +157,12 @@ function selectTypeBotMessage(sender, body) {
             } else if (n5 === 0) {
                 sendTextMessageType(sender, botOut);
             } else if (n6 === 0) {
-                sendTextMessageType(sender, botOut);
+                sendTextMessageList(sender, botOut);
+                if (botOut.buttons.length === 0) {
+                    sendTextMessage(sender, botOut.botUtterance);
+                } else {
+                    sendTextMessageType(sender, botOut);
+                }
             } else if (n7 === 0) {
                 sendTextMessageList(sender, botOut)
                 if (botOut.buttons.length === 0) {
